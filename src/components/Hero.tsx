@@ -83,13 +83,13 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-3xl mx-auto mb-12"
+            className="max-w-4xl mx-auto mb-12"
           >
             <TextReveal
               text="A multidisciplinary creative and technology agency committed to driving brand growth through strategic innovation, intelligent design, and data-driven solutions."
               className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light"
-              delay={1.5}
-              duration={0.6}
+              delay={1.8}
+              duration={0.5}
             />
           </motion.div>
 
