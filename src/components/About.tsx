@@ -13,17 +13,17 @@ const About: React.FC = () => {
     {
       icon: Target,
       title: 'SPARK',
-      description: 'We ignite creativity and innovation in every campaign, sparking ideas that captivate and engage your target audience.',
+      description: 'We ignite bold ideas and creative innovation, sparking transformative concepts that captivate and engage your target audience.',
     },
     {
       icon: Zap,
       title: 'KNACK',
-      description: 'Our expertise and intuitive understanding of digital marketing ensures flawless execution and exceptional results.',
+      description: 'Our deep expertise and intuitive understanding of technology and design ensures intelligent solutions and exceptional results.',
     },
     {
       icon: Rocket,
-      title: 'IGNITE',
-      description: 'We fuel your business growth with powerful digital strategies that accelerate your success and market presence.',
+      title: 'INSPIRE',
+      description: 'We deliver transformative results that empower our clients to lead in their industries and inspire lasting change.',
     },
   ];
 
@@ -68,7 +68,7 @@ const About: React.FC = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              We are a premium digital marketing agency that believes in the power of exceptional content and cutting-edge strategies to transform businesses.
+              A multidisciplinary creative and technology agency committed to driving brand growth through strategic innovation, intelligent design, and data-driven solutions.
             </motion.p>
             <motion.p 
               className="text-lg text-gray-500 leading-relaxed"
@@ -76,7 +76,7 @@ const About: React.FC = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Our mission is simple: create digital campaigns that don't just exist, but dominate. We craft video content, manage social media presence, and run targeted ads that spark engagement, demonstrate your knack for excellence, and ignite unprecedented growth.
+              SKI – Spark, Knack, Inspire. Our mission is to ignite bold ideas, apply deep expertise, and deliver transformative results that empower our clients to lead in their industries.
             </motion.p>
           </div>
         </motion.div>
