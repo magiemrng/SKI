@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
       // Send auto-reply to the user
       await emailjs.send(
         'service_uty2ypf', // Same service ID
-        'template_autoreply', // Your auto-reply template ID
+        'template_zw9a3d6', // Your auto-reply template ID
         {
           from_name: formData.name,
           from_email: formData.email,
