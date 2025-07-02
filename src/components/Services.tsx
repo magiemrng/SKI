@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Palette, Smartphone, Search, ShoppingCart, BarChart } from 'lucide-react';
+import { Video, Users, Target, BarChart, Camera, Megaphone } from 'lucide-react';
 
 const Services: React.FC = () => {
   const [ref, inView] = useInView({
@@ -11,45 +11,45 @@ const Services: React.FC = () => {
 
   const services = [
     {
-      icon: Code,
-      title: 'Custom Web Development',
-      description: 'Bespoke websites built with cutting-edge technologies, tailored to your unique business needs.',
-      features: ['React & Next.js', 'Node.js Backend', 'Database Design', 'API Integration'],
+      icon: Video,
+      title: 'Video Editing & Production',
+      description: 'Professional video editing services that transform raw footage into compelling stories that engage and convert.',
+      features: ['Motion Graphics', 'Color Grading', 'Audio Enhancement', 'Brand Integration'],
       color: '#3B82F6',
     },
     {
-      icon: Palette,
-      title: 'UI/UX Design',
-      description: 'Stunning, user-centric designs that convert visitors into customers and enhance brand perception.',
-      features: ['User Research', 'Wireframing', 'Prototyping', 'Brand Identity'],
+      icon: Users,
+      title: 'Social Media Management',
+      description: 'Complete social media management to build your brand presence and engage with your audience effectively.',
+      features: ['Content Strategy', 'Community Management', 'Posting Schedule', 'Analytics Reporting'],
       color: '#EC4899',
     },
     {
-      icon: Smartphone,
-      title: 'Mobile-First Development',
-      description: 'Responsive designs that deliver exceptional experiences across all devices and screen sizes.',
-      features: ['Progressive Web Apps', 'Mobile Optimization', 'Touch Interfaces', 'Performance Tuning'],
+      icon: Target,
+      title: 'Targeted Ad Campaigns',
+      description: 'Data-driven advertising campaigns across platforms that maximize ROI and reach your ideal customers.',
+      features: ['Facebook Ads', 'Google Ads', 'Instagram Campaigns', 'LinkedIn Marketing'],
       color: '#10B981',
     },
     {
-      icon: Search,
-      title: 'SEO Optimization',
-      description: 'Strategic SEO implementation to boost your search rankings and drive organic traffic.',
-      features: ['Technical SEO', 'Content Strategy', 'Performance Optimization', 'Analytics Setup'],
+      icon: Camera,
+      title: 'Content Creation',
+      description: 'High-quality content creation including photography, videography, and graphic design for all platforms.',
+      features: ['Product Photography', 'Brand Videos', 'Graphic Design', 'Content Planning'],
       color: '#F59E0B',
     },
     {
-      icon: ShoppingCart,
-      title: 'E-commerce Solutions',
-      description: 'Powerful online stores that maximize conversions and provide seamless shopping experiences.',
-      features: ['Payment Integration', 'Inventory Management', 'Order Processing', 'Customer Analytics'],
+      icon: Megaphone,
+      title: 'Influencer Marketing',
+      description: 'Strategic influencer partnerships that amplify your brand message and reach new audiences authentically.',
+      features: ['Influencer Outreach', 'Campaign Management', 'Performance Tracking', 'Brand Partnerships'],
       color: '#6366F1',
     },
     {
       icon: BarChart,
-      title: 'Performance Analytics',
-      description: 'Comprehensive tracking and analytics to measure success and optimize for better results.',
-      features: ['User Behavior Tracking', 'Conversion Optimization', 'A/B Testing', 'ROI Analysis'],
+      title: 'Analytics & Optimization',
+      description: 'Comprehensive analytics and optimization services to measure success and continuously improve performance.',
+      features: ['Performance Analytics', 'A/B Testing', 'Conversion Tracking', 'ROI Analysis'],
       color: '#8B5CF6',
     },
   ];
@@ -75,12 +75,22 @@ const Services: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight">
+          <motion.h2 
+            className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             Our Services
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto">
-            Comprehensive web development services designed to elevate your digital presence and drive measurable business growth.
-          </p>
+          </motion.h2>
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Comprehensive digital marketing services designed to elevate your brand presence and drive measurable business growth.
+          </motion.p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -89,14 +99,16 @@ const Services: React.FC = () => {
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               whileHover={{ y: -10 }}
               className="bg-ski-gray p-8 rounded-2xl group hover:shadow-xl transition-all duration-300 relative overflow-hidden h-full border border-gray-100"
             >
               {/* Subtle Hover Effect */}
-              <div
+              <motion.div
                 className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl"
                 style={{ backgroundColor: service.color }}
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 0.1 }}
               />
               
               <motion.div
@@ -117,13 +129,16 @@ const Services: React.FC = () => {
               
               <ul className="space-y-2 relative z-10">
                 {service.features.map((feature, idx) => (
-                  <li 
+                  <motion.li 
                     key={idx} 
                     className="text-sm text-gray-500 flex items-center"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.5 + index * 0.1 + idx * 0.05 }}
                   >
                     <div className="w-1.5 h-1.5 bg-ski-accent rounded-full mr-3" />
                     {feature}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>

@@ -13,24 +13,24 @@ const About: React.FC = () => {
     {
       icon: Target,
       title: 'SPARK',
-      description: 'We ignite creativity and innovation in every project, sparking ideas that captivate and engage your audience.',
+      description: 'We ignite creativity and innovation in every campaign, sparking ideas that captivate and engage your target audience.',
     },
     {
       icon: Zap,
       title: 'KNACK',
-      description: 'Our expertise and intuitive understanding of web development ensures flawless execution and exceptional results.',
+      description: 'Our expertise and intuitive understanding of digital marketing ensures flawless execution and exceptional results.',
     },
     {
       icon: Rocket,
       title: 'IGNITE',
-      description: 'We fuel your business growth with powerful web solutions that accelerate your success and market presence.',
+      description: 'We fuel your business growth with powerful digital strategies that accelerate your success and market presence.',
     },
   ];
 
   const stats = [
-    { number: 150, suffix: '+', label: 'Projects Completed' },
+    { number: 250, suffix: '+', label: 'Campaigns Completed' },
     { number: 98, suffix: '%', label: 'Client Satisfaction' },
-    { number: 50, suffix: '+', label: 'Happy Clients' },
+    { number: 75, suffix: '+', label: 'Happy Clients' },
     { number: 24, suffix: '/7', label: 'Support Available' },
   ];
 
@@ -53,16 +53,31 @@ const About: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight">
+          <motion.h2 
+            className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             About SKI
-          </h2>
+          </motion.h2>
           <div className="max-w-4xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
-              We are a premium web development agency that believes in the power of exceptional design and cutting-edge technology to transform businesses.
-            </p>
-            <p className="text-lg text-gray-500 leading-relaxed">
-              Our mission is simple: create websites that don't just exist, but dominate. We craft digital experiences that spark engagement, demonstrate your knack for excellence, and ignite unprecedented growth.
-            </p>
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              We are a premium digital marketing agency that believes in the power of exceptional content and cutting-edge strategies to transform businesses.
+            </motion.p>
+            <motion.p 
+              className="text-lg text-gray-500 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Our mission is simple: create digital campaigns that don't just exist, but dominate. We craft video content, manage social media presence, and run targeted ads that spark engagement, demonstrate your knack for excellence, and ignite unprecedented growth.
+            </motion.p>
           </div>
         </motion.div>
 
@@ -70,7 +85,7 @@ const About: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
         >
           {stats.map((stat, index) => (
@@ -79,6 +94,9 @@ const About: React.FC = () => {
               className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
             >
               <div className="text-3xl md:text-4xl font-bold text-ski-black mb-2">
                 {stat.number}{stat.suffix}
@@ -94,7 +112,7 @@ const About: React.FC = () => {
               key={value.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+              transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
               className="text-center group"
             >
               <motion.div

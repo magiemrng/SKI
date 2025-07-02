@@ -63,13 +63,23 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight">
+          <motion.h2 
+            className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             Let's Create Something Amazing
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto">
-            Ready to transform your digital presence? Let's discuss your project 
+          </motion.h2>
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Ready to transform your digital presence? Let's discuss your marketing goals 
             and bring your vision to life.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16">
@@ -77,11 +87,15 @@ const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                >
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Name *
                   </label>
@@ -95,9 +109,13 @@ const Contact: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ski-accent focus:border-transparent transition-all duration-200"
                     placeholder="Your name"
                   />
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                >
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email *
                   </label>
@@ -111,10 +129,14 @@ const Contact: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ski-accent focus:border-transparent transition-all duration-200"
                     placeholder="your@email.com"
                   />
-                </div>
+                </motion.div>
               </div>
               
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.6 }}
+              >
                 <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                   Company
                 </label>
@@ -127,9 +149,13 @@ const Contact: React.FC = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ski-accent focus:border-transparent transition-all duration-200"
                   placeholder="Your company"
                 />
-              </div>
+              </motion.div>
               
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.7 }}
+              >
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message *
                 </label>
@@ -141,9 +167,9 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ski-accent focus:border-transparent transition-all duration-200 resize-none"
-                  placeholder="Tell us about your project..."
+                  placeholder="Tell us about your marketing goals..."
                 />
-              </div>
+              </motion.div>
               
               <motion.button
                 type="submit"
@@ -151,6 +177,9 @@ const Contact: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 disabled={isSubmitted}
                 className="w-full bg-ski-black text-white px-8 py-4 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-ski-accent transition-all duration-300 disabled:opacity-50"
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.8 }}
               >
                 {isSubmitted ? (
                   <>
@@ -175,23 +204,35 @@ const Contact: React.FC = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-ski-black mb-6">
+              <motion.h3 
+                className="text-2xl font-bold text-ski-black mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.5 }}
+              >
                 Get in Touch
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                We're here to help bring your vision to life. Whether you have a specific project in mind 
-                or just want to explore possibilities, we'd love to hear from you.
-              </p>
+              </motion.h3>
+              <motion.p 
+                className="text-gray-600 leading-relaxed mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.6 }}
+              >
+                We're here to help bring your digital marketing vision to life. Whether you need video content, social media management, or advertising campaigns, we'd love to hear from you.
+              </motion.p>
             </div>
 
             <div className="space-y-6">
-              {contactInfo.map((info) => (
+              {contactInfo.map((info, index) => (
                 <motion.a
                   key={info.title}
                   href={info.link}
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                   className="flex items-center gap-4 p-4 bg-ski-gray rounded-lg hover:shadow-md transition-all duration-300 group"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                 >
                   <div className="flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
                     <info.icon className="w-6 h-6 text-ski-accent" />
@@ -208,15 +249,20 @@ const Contact: React.FC = () => {
               ))}
             </div>
 
-            <div className="bg-ski-gray p-6 rounded-lg">
+            <motion.div 
+              className="bg-ski-gray p-6 rounded-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 1.0 }}
+            >
               <h4 className="text-lg font-bold text-ski-black mb-3">
-                Project Timeline
+                Campaign Timeline
               </h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Most projects are completed within 4-8 weeks, depending on complexity. 
+                Most campaigns are launched within 2-4 weeks, depending on complexity. 
                 We'll provide a detailed timeline and milestones during our initial consultation.
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

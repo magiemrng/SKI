@@ -2,14 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import TypewriterEffect from './animations/TypewriterEffect';
-import FlipWords from './animations/FlipWords';
 import TextReveal from './animations/TextReveal';
 import GradientText from './animations/GradientText';
 import WaveText from './animations/WaveText';
 
 const Hero: React.FC = () => {
   const typewriterWords = ['EXCELLENCE', 'INNOVATION', 'CREATIVITY', 'SUCCESS'];
-  const flipWords = ['SPARK', 'IGNITE', 'CREATE', 'INSPIRE'];
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-ski-gray/30 to-white relative overflow-hidden">
@@ -57,18 +55,19 @@ const Hero: React.FC = () => {
                 />
               </div>
               
-              <div className="block text-ski-black mb-4">
-                <FlipWords 
-                  words={flipWords}
-                  duration={2500}
-                  className="text-5xl md:text-7xl lg:text-8xl font-bold"
-                />
-              </div>
+              <motion.div 
+                className="block text-ski-black mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+              >
+                IGNITE
+              </motion.div>
             </div>
 
             {/* Animated subtitle with typewriter effect */}
             <div className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-700 mb-6">
-              We build websites with{' '}
+              We create digital experiences with{' '}
               <TypewriterEffect
                 words={typewriterWords}
                 className="text-ski-accent font-bold"
@@ -87,7 +86,7 @@ const Hero: React.FC = () => {
             className="max-w-3xl mx-auto mb-12"
           >
             <TextReveal
-              text="We build unique and standout websites that outshine your competitors. Premium web development that sparks engagement, ignites growth."
+              text="We are a full-service digital marketing agency specializing in video editing, social media management, and targeted ad campaigns that drive real results for your business."
               className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light"
               delay={1.5}
               duration={0.6}
@@ -109,7 +108,7 @@ const Hero: React.FC = () => {
                 className="absolute inset-0 bg-gradient-to-r from-ski-accent to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
               />
-              <span className="relative z-10">Start Your Project</span>
+              <span className="relative z-10">Start Your Campaign</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200 relative z-10" />
             </motion.button>
             
