@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
 
     try {
       // Initialize EmailJS with your public key
-      emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your actual public key
+      emailjs.init('DTYHmoVtuW1mQA8wL'); // Replace with your actual public key
 
       const templateParams = {
         from_name: formData.name,
