@@ -37,10 +37,22 @@ const Contact: React.FC = () => {
         to_name: 'SKI Team',
       };
 
+      // Send main email to SKI team
       await emailjs.send(
         'service_uty2ypf', // Replace with your service ID
         'template_9lrewlc', // Replace with your template ID
         templateParams
+      );
+
+      // Send auto-reply to the user
+      await emailjs.send(
+        'service_uty2ypf', // Same service ID
+        'template_autoreply', // Your auto-reply template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          to_email: formData.email, // Send to the user
+        }
       );
 
       setSubmitStatus('success');
@@ -213,7 +225,7 @@ const Contact: React.FC = () => {
                   className="flex items-center gap-2 text-green-600 bg-green-50 p-3 rounded-lg"
                 >
                   <CheckCircle size={20} />
-                  <span>Message sent successfully! We'll get back to you soon.</span>
+                  <span>Message sent successfully! Check your email for confirmation.</span>
                 </motion.div>
               )}
 
@@ -275,6 +287,8 @@ const Contact: React.FC = () => {
                 2. Replace YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, and YOUR_TEMPLATE_ID in the code
                 <br />
                 3. Configure your email template and service
+                <br />
+                4. Create a second template with ID 'template_autoreply' for auto-replies
               </p>
             </motion.div>
           </motion.div>
