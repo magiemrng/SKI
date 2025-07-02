@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
       };
 
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your service ID
+        'service_uty2ypf', // Replace with your service ID
         'YOUR_TEMPLATE_ID', // Replace with your template ID
         templateParams
       );
