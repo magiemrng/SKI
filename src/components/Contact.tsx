@@ -270,27 +270,7 @@ const Contact: React.FC = () => {
             </form>
 
             {/* Setup Instructions */}
-            <motion.div 
-              className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.9 }}
-            >
-              <h4 className="text-sm font-semibold text-blue-800 mb-2">
-                📧 EmailJS Setup Required
-              </h4>
-              <p className="text-xs text-blue-700 leading-relaxed">
-                To enable email functionality, please:
-                <br />
-                1. Create an account at <a href="https://emailjs.com" target="_blank" rel="noopener noreferrer" className="underline">emailjs.com</a>
-                <br />
-                2. Replace YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, and YOUR_TEMPLATE_ID in the code
-                <br />
-                3. Configure your email template and service
-                <br />
-                4. Create a second template with ID 'template_autoreply' for auto-replies
-              </p>
-            </motion.div>
+           
           </motion.div>
 
           {/* Contact Information */}
