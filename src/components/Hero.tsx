@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
             className="max-w-3xl mx-auto mb-12"
           >
             <TextReveal
-              text="A multidisciplinary creative and technology agency committed to driving brand growth through strategic innovation, intelligent design, and data-driven solutions. SKI – Spark, Knack, Inspire, our mission is to ignite bold ideas, apply deep expertise, and deliver transformative results that empower our clients to lead in their industries."
+              text="A multidisciplinary creative and technology agency committed to driving brand growth through strategic innovation, intelligent design, and data-driven solutions."
               className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light"
               delay={1.5}
               duration={0.6}
