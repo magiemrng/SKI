@@ -30,7 +30,7 @@ const About: React.FC = () => {
   const stats = [
     { number: 250, suffix: '+', label: 'Campaigns Completed' },
     { number: 98, suffix: '%', label: 'Client Satisfaction' },
-    { number: 75, suffix: '+', label: 'Happy Clients' },
+    { number: 20, suffix: '+', label: 'Happy Clients' },
     { number: 24, suffix: '/7', label: 'Support Available' },
   ];
 
