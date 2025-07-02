@@ -36,20 +36,20 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'hello@ski-agency.com',
-      link: 'mailto:hello@ski-agency.com',
+      value: 'ski.creativelab@gmail.com',
+      link: 'mailto:ski.creativelab@gmail.com',
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+91 9059081173',
+      link: 'tel:+919059081173',
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
-      link: '#',
+      value: 'Warangal, India',
+      link: '/',
     },
   ];
 
