@@ -2,10 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github } from 'lucide-react';
-import ParallaxSection from './ParallaxSection';
-import GlitchText from './animations/GlitchText';
-import MagnetButton from './animations/MagnetButton';
-import StarBorder from './animations/StarBorder';
 
 const Portfolio: React.FC = () => {
   const [ref, inView] = useInView({
@@ -66,175 +62,98 @@ const Portfolio: React.FC = () => {
 
   return (
     <section id="work" className="py-32 bg-ski-gray relative overflow-hidden">
-      {/* Enhanced 3D Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: `${Math.random() * 4 + 1}px`,
-              height: `${Math.random() * 4 + 1}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              background: i % 2 === 0 ? '#FF6B35' : '#0A0A0A',
-            }}
-            animate={{
-              y: [0, -50, 0],
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 2, 1],
-              rotate: [0, 360, 0],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 4,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
+      {/* Simplified Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 20% 80%, #FF6B35 1px, transparent 1px),
+                           radial-gradient(circle at 80% 20%, #0A0A0A 1px, transparent 1px)`,
+          backgroundSize: '100px 100px, 80px 80px',
+        }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <ParallaxSection>
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <GlitchText
-              text="Our Work"
-              className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight"
-            />
-            <motion.p 
-              className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto"
-              initial={{ filter: 'blur(10px)', opacity: 0 }}
-              animate={inView ? { filter: 'blur(0px)', opacity: 1 } : {}}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              Showcasing exceptional digital experiences that have transformed businesses 
-              and exceeded client expectations.
-            </motion.p>
-          </motion.div>
-        </ParallaxSection>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight">
+            Our Work
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto">
+            Showcasing exceptional digital experiences that have transformed businesses 
+            and exceeded client expectations.
+          </p>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <StarBorder key={project.title} speed={1.5 + index * 0.3}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ 
-                  y: -20,
-                  rotateX: 10,
-                  rotateY: 10,
-                  scale: 1.02,
-                }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition-all duration-500 relative h-full"
-                style={{ 
-                  transformStyle: 'preserve-3d',
-                  perspective: '1000px'
-                }}
-              >
-                <div className="relative overflow-hidden">
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                    whileHover={{ scale: 1.3 }}
-                    transition={{ duration: 0.8 }}
-                  />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center"
-                    whileHover={{ backdropFilter: "blur(4px)" }}
-                  >
-                    <div className="flex gap-4">
-                      <MagnetButton
-                        className="bg-white/90 p-3 rounded-full shadow-lg backdrop-blur-sm hover:bg-white"
-                        strength={10}
-                      >
-                        <ExternalLink className="w-5 h-5 text-ski-black" />
-                      </MagnetButton>
-                      <MagnetButton
-                        className="bg-white/90 p-3 rounded-full shadow-lg backdrop-blur-sm hover:bg-white"
-                        strength={10}
-                      >
-                        <Github className="w-5 h-5 text-ski-black" />
-                      </MagnetButton>
-                    </div>
-                  </motion.div>
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition-all duration-300 relative h-full"
+            >
+              <div className="relative overflow-hidden">
+                <motion.img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                  <div className="flex gap-4">
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="bg-white/90 p-3 rounded-full shadow-lg backdrop-blur-sm hover:bg-white transition-colors duration-200"
+                    >
+                      <ExternalLink className="w-5 h-5 text-ski-black" />
+                    </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="bg-white/90 p-3 rounded-full shadow-lg backdrop-blur-sm hover:bg-white transition-colors duration-200"
+                    >
+                      <Github className="w-5 h-5 text-ski-black" />
+                    </motion.button>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="p-6 relative">
+                <div 
+                  className="text-sm font-medium mb-2"
+                  style={{ color: project.color }}
+                >
+                  {project.category}
                 </div>
                 
-                <div className="p-6 relative">
-                  <motion.div 
-                    className="text-sm font-medium mb-2"
-                    style={{ color: project.color }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {project.category}
-                  </motion.div>
-                  
-                  <motion.h3 
-                    className="text-xl font-bold text-ski-black mb-3"
-                    whileHover={{ color: project.color }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {project.title}
-                  </motion.h3>
-                  
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <motion.span
-                        key={tag}
-                        className="px-3 py-1 bg-ski-gray text-xs font-medium text-gray-700 rounded-full"
-                        whileHover={{ 
-                          backgroundColor: project.color,
-                          color: 'white',
-                          scale: 1.1
-                        }}
-                        transition={{ duration: 0.2 }}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: index * 0.1 + tagIndex * 0.1 }}
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </div>
-
-                  {/* Enhanced Floating Particles */}
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 rounded-full opacity-0 group-hover:opacity-100"
-                      style={{ 
-                        backgroundColor: project.color,
-                        top: `${10 + i * 15}%`,
-                        right: `${5 + i * 3}%`,
-                      }}
-                      animate={{
-                        scale: [1, 3, 1],
-                        opacity: [0.3, 1, 0.3],
-                        rotate: [0, 180, 360]
-                      }}
-                      transition={{
-                        duration: 2 + i * 0.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2
-                      }}
-                    />
+                <h3 className="text-xl font-bold text-ski-black mb-3">
+                  {project.title}
+                </h3>
+                
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-ski-gray text-xs font-medium text-gray-700 rounded-full hover:bg-gray-200 transition-colors duration-200"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
-              </motion.div>
-            </StarBorder>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

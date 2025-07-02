@@ -58,9 +58,9 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight">
@@ -75,9 +75,9 @@ const Contact: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
@@ -169,9 +169,9 @@ const Contact: React.FC = () => {
 
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="space-y-8"
           >
             <div>
@@ -189,7 +189,8 @@ const Contact: React.FC = () => {
                 <motion.a
                   key={info.title}
                   href={info.link}
-                  whileHover={{ x: 10 }}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
                   className="flex items-center gap-4 p-4 bg-ski-gray rounded-lg hover:shadow-md transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
