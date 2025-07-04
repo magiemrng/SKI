@@ -11,6 +11,13 @@ const Portfolio: React.FC = () => {
 
   const [activeFilter, setActiveFilter] = useState('All');
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const categories = ['All', 'Social Media', 'Video Production', 'Web Development', 'Analytics', 'Advertising'];
 
   const projects = [
@@ -359,6 +366,7 @@ const Portfolio: React.FC = () => {
                 Join our portfolio of successful brands and let us help you achieve remarkable results with our proven strategies.
               </p>
               <motion.button
+                onClick={scrollToContact}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-ski-accent to-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
