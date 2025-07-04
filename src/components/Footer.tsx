@@ -78,6 +78,7 @@ const Footer: React.FC = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target=_blank
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-ski-accent transition-all duration-300"
