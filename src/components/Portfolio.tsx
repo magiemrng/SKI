@@ -134,7 +134,7 @@ const Portfolio: React.FC = () => {
                       whileTap={{ scale: 0.9 }}
                       className="bg-white/90 p-3 rounded-full shadow-lg backdrop-blur-sm hover:bg-white transition-colors duration-200"
                     >
-                      <Play className="w-5 h-5 text-ski-black" />
+                     
                     </motion.button>
                   </div>
                 </motion.div>
