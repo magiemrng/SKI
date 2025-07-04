@@ -2,12 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Target, Zap, Rocket } from 'lucide-react';
+import { useParallax } from '../hooks/useParallax';
 
 const About: React.FC = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const parallaxRef = useParallax({ speed: -0.2 });
 
   const values = [
     {
@@ -36,8 +39,11 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="py-32 bg-ski-gray relative overflow-hidden">
-      {/* Simplified Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      {/* Parallax Background Pattern */}
+      <div 
+        ref={parallaxRef}
+        className="absolute inset-0 opacity-5"
+      >
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 20% 80%, #FF6B35 1px, transparent 1px),
                            radial-gradient(circle at 80% 20%, #0A0A0A 1px, transparent 1px)`,
@@ -48,33 +54,33 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
           <motion.h2 
             className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             About SKI
           </motion.h2>
           <div className="max-w-4xl mx-auto">
             <motion.p 
               className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               A multidisciplinary creative and technology agency committed to driving brand growth through strategic innovation, intelligent design, and data-driven solutions.
             </motion.p>
             <motion.p 
               className="text-lg text-gray-500 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               SKI – Spark, Knack, Inspire. Our mission is to ignite bold ideas, apply deep expertise, and deliver transformative results that empower our clients to lead in their industries.
             </motion.p>
@@ -83,20 +89,27 @@ const About: React.FC = () => {
 
         {/* Stats Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div 
               key={stat.label} 
-              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-              initial={{ opacity: 0, y: 20 }}
+              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-500 ease-out"
+              whileHover={{ 
+                y: -8, 
+                scale: 1.02,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+              }}
+              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+              style={{ 
+                transitionDelay: `${0.5 + index * 0.1}s`,
+                transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+              }}
             >
               <div className="text-3xl md:text-4xl font-bold text-ski-black mb-2">
                 {stat.number}{stat.suffix}
@@ -110,15 +123,23 @@ const About: React.FC = () => {
           {values.map((value, index) => (
             <motion.div
               key={value.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.7 + index * 0.15,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
               className="text-center group"
             >
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-8 group-hover:shadow-xl transition-shadow duration-300"
+                whileHover={{ 
+                  scale: 1.15,
+                  rotate: 5,
+                  boxShadow: "0 20px 40px rgba(255, 107, 53, 0.2)"
+                }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-8 group-hover:shadow-xl transition-all duration-500"
               >
                 <value.icon className="w-10 h-10 text-ski-accent" />
               </motion.div>
