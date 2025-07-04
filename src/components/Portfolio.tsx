@@ -129,13 +129,7 @@ const Portfolio: React.FC = () => {
                     >
                       <ExternalLink className="w-5 h-5 text-ski-black" />
                     </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="bg-white/90 p-3 rounded-full shadow-lg backdrop-blur-sm hover:bg-white transition-colors duration-200"
-                    >
-                     
-                    </motion.button>
+                   
                   </div>
                 </motion.div>
               </div>
