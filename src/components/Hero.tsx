@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import TypewriterEffect from './animations/TypewriterEffect';
 import TextReveal from './animations/TextReveal';
 import GradientText from './animations/GradientText';
@@ -8,12 +9,13 @@ import WaveText from './animations/WaveText';
 import Aurora from './Aurora';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
   const typewriterWords = ['EXCELLENCE', 'INNOVATION', 'CREATIVITY', 'SUCCESS'];
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToWork = () => {
+    const workSection = document.getElementById('work');
+    if (workSection) {
+      workSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -112,7 +114,7 @@ const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <motion.button
-              onClick={scrollToContact}
+              onClick={() => navigate('/contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-ski-black text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300 hover:bg-ski-accent hover:shadow-lg group relative overflow-hidden"
@@ -126,12 +128,7 @@ const Hero: React.FC = () => {
             </motion.button>
             
             <motion.button
-              onClick={() => {
-                const workSection = document.getElementById('work');
-                if (workSection) {
-                  workSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={scrollToWork}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="border-2 border-ski-black text-ski-black px-8 py-4 rounded-full font-medium hover:bg-ski-black hover:text-white transition-all duration-300 flex items-center gap-2 group relative overflow-hidden"

@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollIndicator from './components/ScrollIndicator';
+import HomePage from './pages/HomePage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   useEffect(() => {
@@ -57,39 +55,21 @@ function App() {
     `;
     document.head.appendChild(smoothScrollStyle);
 
-    // Add smooth scroll behavior to anchor links
-    const handleAnchorClick = (e: Event) => {
-      const target = e.target as HTMLAnchorElement;
-      if (target.hash) {
-        e.preventDefault();
-        const element = document.querySelector(target.hash);
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
-      }
-    };
-
-    document.addEventListener('click', handleAnchorClick);
-
     return () => {
       document.head.removeChild(smoothScrollStyle);
-      document.removeEventListener('click', handleAnchorClick);
     };
   }, []);
 
   return (
     <div className="font-inter overflow-x-hidden">
       <ScrollIndicator />
-      {/* Smooth scrolling effect removed - now using standard scrolling */}
       <Header />
-      <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <Contact />
+      
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      
       <Footer />
     </div>
   );

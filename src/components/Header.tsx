@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,12 +18,41 @@ const Header: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Work', href: '#work' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/#about' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Work', href: '/#work' },
+    { name: 'Contact', href: '/contact' },
   ];
+
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      // If we're not on home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          const sectionId = href.substring(2);
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // We're already on home page, just scroll
+        const sectionId = href.substring(2);
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      // Regular navigation
+      navigate(href);
+    }
+  };
 
   return (
     <>
@@ -64,21 +96,21 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <a href="/" className="flex items-center">
+              <button onClick={() => navigate('/')} className="flex items-center">
                 <img 
                   src="/full_logo.png" 
                   alt="SKI Logo" 
                   className="h-32 w-32 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-lg" 
                 />
-              </a>
+              </button>
             </motion.div>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.button
                   key={item.name}
-                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
                   whileHover={{ y: -2, scale: 1.05 }}
                   className={`font-medium relative group transition-all duration-300 ${
                     isScrolled 
@@ -98,7 +130,7 @@ const Header: React.FC = () => {
                       filter: 'drop-shadow(0 2px 4px rgba(255, 107, 53, 0.3))',
                     }}
                   />
-                </motion.a>
+                </motion.button>
               ))}
             </nav>
 
@@ -154,11 +186,10 @@ const Header: React.FC = () => {
             
             <div className="px-6 py-6 space-y-2 relative z-10">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.button
                   key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block text-ski-black/90 hover:text-ski-accent transition-all duration-300 font-medium py-3 px-4 rounded-2xl hover:bg-white/20 backdrop-blur-sm border border-transparent hover:border-white/30"
+                  onClick={() => handleNavClick(item.href)}
+                  className="block w-full text-left text-ski-black/90 hover:text-ski-accent transition-all duration-300 font-medium py-3 px-4 rounded-2xl hover:bg-white/20 backdrop-blur-sm border border-transparent hover:border-white/30"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -177,7 +208,7 @@ const Header: React.FC = () => {
                     <div className="w-2 h-2 bg-ski-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {item.name}
                   </motion.div>
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </motion.div>

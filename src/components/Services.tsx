@@ -1,20 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import { Video, Users, Target, BarChart, Camera, Megaphone, Monitor, Database, ArrowUpRight, Sparkles } from 'lucide-react';
 
 const Services: React.FC = () => {
+  const navigate = useNavigate();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const services = [
     {
@@ -215,7 +210,7 @@ const Services: React.FC = () => {
 
                   {/* CTA Button */}
                   <motion.button
-                    onClick={scrollToContact}
+                    onClick={() => navigate('/contact')}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl font-medium flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
@@ -260,7 +255,7 @@ const Services: React.FC = () => {
                 Let's discuss how our comprehensive services can help you achieve your digital marketing goals and drive sustainable growth.
               </p>
               <motion.button
-                onClick={scrollToContact}
+                onClick={() => navigate('/contact')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-ski-accent to-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold flex items-center gap-2 mx-auto hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
