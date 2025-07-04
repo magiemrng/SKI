@@ -167,7 +167,7 @@ const ContactPage: React.FC = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-12 border border-gray-200/50 shadow-2xl order-2 lg:order-1"
+              className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-12 border border-gray-200/50 shadow-2xl order-1"
             >
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-ski-black mb-4 sm:mb-6 lg:mb-8">Send us a message</h2>
               
@@ -316,7 +316,7 @@ const ContactPage: React.FC = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 sm:space-y-8 order-1 lg:order-2"
+              className="space-y-6 sm:space-y-8 order-2"
             >
               <div className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-12 border border-gray-200/50 shadow-2xl">
                 <motion.h3 
