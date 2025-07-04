@@ -28,15 +28,34 @@ const Header: React.FC = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? 'bg-white/10 backdrop-blur-xl border-white/20 shadow-2xl shadow-black/5' 
+            : 'bg-transparent'
         }`}
         style={{
-          borderBottomLeftRadius: isScrolled ? '24px' : '0px',
-          borderBottomRightRadius: isScrolled ? '24px' : '0px',
+          borderBottomLeftRadius: isScrolled ? '32px' : '0px',
+          borderBottomRightRadius: isScrolled ? '32px' : '0px',
+          borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.2)' : 'none',
+          backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
         }}
       >
-        <div className="max-w-8xl mx-auto px-6 lg:px-8">
+        {/* Glass reflection effect */}
+        {isScrolled && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"
+            style={{
+              borderBottomLeftRadius: '32px',
+              borderBottomRightRadius: '32px',
+            }}
+          />
+        )}
+
+        <div className="max-w-8xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-between h-20">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -46,29 +65,37 @@ const Header: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <a href="/" className="flex items-center">
-                <img src="/full_logo.png" alt="SKI Logo" className="h-32 w-32 hover:cursor-pointer" />
+                <img 
+                  src="/full_logo.png" 
+                  alt="SKI Logo" 
+                  className="h-32 w-32 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-lg" 
+                />
               </a>
             </motion.div>
             
-
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  whileHover={{ y: -2 }}
-                  className="text-ski-black hover:text-ski-accent transition-colors duration-200 font-medium relative group"
+                  whileHover={{ y: -2, scale: 1.05 }}
+                  className={`font-medium relative group transition-all duration-300 ${
+                    isScrolled 
+                      ? 'text-ski-black/90 hover:text-ski-accent' 
+                      : 'text-ski-black hover:text-ski-accent'
+                  }`}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                 >
                   {item.name}
-                  {/* Curved underline on hover */}
+                  {/* Glass-like underline on hover */}
                   <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-ski-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-ski-accent to-orange-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 shadow-lg"
                     style={{
                       borderRadius: '2px',
+                      filter: 'drop-shadow(0 2px 4px rgba(255, 107, 53, 0.3))',
                     }}
                   />
                 </motion.a>
@@ -78,13 +105,27 @@ const Header: React.FC = () => {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+              className={`md:hidden p-3 rounded-2xl transition-all duration-300 ${
+                isScrolled 
+                  ? 'bg-white/20 backdrop-blur-md border border-white/30 hover:bg-white/30 shadow-lg' 
+                  : 'hover:bg-gray-100/80 backdrop-blur-sm'
+              }`}
               whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.5 }}
+              style={{
+                backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+                WebkitBackdropFilter: isScrolled ? 'blur(10px)' : 'none',
+              }}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <motion.div
+                animate={{ rotate: isMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.div>
             </motion.button>
           </div>
         </div>
@@ -94,28 +135,48 @@ const Header: React.FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0, y: -20 }}
-            animate={{ opacity: 1, height: 'auto', y: 0 }}
-            exit={{ opacity: 0, height: 0, y: -20 }}
+            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed top-20 left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-lg mx-4 mt-2"
+            className="fixed top-24 left-4 right-4 z-40 bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/10"
             style={{
-              borderRadius: '20px',
+              borderRadius: '24px',
+              backdropFilter: 'blur(20px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
             }}
           >
-            <div className="px-6 py-6 space-y-4">
+            {/* Glass reflection effect for mobile menu */}
+            <div 
+              className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"
+              style={{ borderRadius: '24px' }}
+            />
+            
+            <div className="px-6 py-6 space-y-2 relative z-10">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block text-ski-black hover:text-ski-accent transition-colors duration-200 font-medium py-2 px-4 rounded-xl hover:bg-ski-gray/50"
+                  className="block text-ski-black/90 hover:text-ski-accent transition-all duration-300 font-medium py-3 px-4 rounded-2xl hover:bg-white/20 backdrop-blur-sm border border-transparent hover:border-white/30"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ x: 5 }}
+                  whileHover={{ x: 8, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
+                  }}
                 >
-                  {item.name}
+                  <motion.div
+                    className="flex items-center gap-3"
+                    whileHover={{ gap: '16px' }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-2 h-2 bg-ski-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {item.name}
+                  </motion.div>
                 </motion.a>
               ))}
             </div>
