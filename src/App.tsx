@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollIndicator from './components/ScrollIndicator';
@@ -7,6 +7,13 @@ import HomePage from './pages/HomePage';
 import ContactPage from './pages/ContactPage';
 
 function App() {
+  const location = useLocation();
+
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   useEffect(() => {
     // Enhanced smooth scrolling for the entire page
     const smoothScrollStyle = document.createElement('style');
