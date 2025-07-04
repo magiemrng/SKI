@@ -7,10 +7,10 @@ interface SmoothScrollOptions {
 }
 
 export const useSmoothScroll = (options: SmoothScrollOptions = {}) => {
-  // 🎛️ DEFAULT SPEED SETTINGS - Change these for global speed adjustments:
+  // 🎛️ OPTIMIZED SPEED SETTINGS - Faster and more responsive:
   const { 
-    factor = 1.2,    // 📈 Higher = faster scrolling (try 0.8-2.0)
-    ease = 0.15,     // 📈 Higher = more responsive (try 0.05-0.25)
+    factor = 1.5,    // 📈 Increased from 1.2 to 1.5 for faster scrolling
+    ease = 0.2,      // 📈 Increased from 0.15 to 0.2 for more responsive feel
     enabled = true 
   } = options;
   
@@ -38,7 +38,7 @@ export const useSmoothScroll = (options: SmoothScrollOptions = {}) => {
       scrollElement.style.transform = `translate3d(0, ${-currentScrollY.current}px, 0)`;
 
       // Continue animation with tighter threshold for faster stopping
-      if (Math.abs(diff) > 0.05) {
+      if (Math.abs(diff) > 0.03) { // Reduced from 0.05 to 0.03 for faster response
         requestRef.current = requestAnimationFrame(updateScroll);
       } else {
         isScrolling = false;

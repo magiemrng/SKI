@@ -91,9 +91,9 @@ function App() {
         factor: 1 = normal speed, 0.5 = slower, 1.5 = faster
         ease: 0.15 = faster response, 0.05 = slower response
         
-        Current settings: factor={1.2} ease={0.15} = Faster & more responsive
+        Current settings: factor={1.5} ease={0.2} = Much Faster & More Responsive
       */}
-      <SmoothScrollWrapper enabled={true} factor={1.2} ease={0.15}>
+      <SmoothScrollWrapper enabled={true} factor={1.5} ease={0.2}>
         <Header />
         <Hero />
         <About />
