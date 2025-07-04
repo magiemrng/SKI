@@ -88,20 +88,6 @@ const Header: React.FC = () => {
             </motion.button>
           </div>
         </div>
-
-        {/* Curved bottom edge when scrolled */}
-        {isScrolled && (
-          <motion.div
-            initial={{ opacity: 0, scaleY: 0 }}
-            animate={{ opacity: 1, scaleY: 1 }}
-            transition={{ duration: 0.3 }}
-            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-ski-accent/20 via-ski-accent/40 to-ski-accent/20"
-            style={{
-              borderBottomLeftRadius: '24px',
-              borderBottomRightRadius: '24px',
-            }}
-          />
-        )}
       </motion.header>
 
       {/* Mobile Menu */}
