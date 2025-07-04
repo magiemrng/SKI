@@ -4,10 +4,9 @@ import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/ski.creativelab/', label: 'Instagram' },
   ];
 
   const footerLinks = [
