@@ -98,9 +98,9 @@ const Header: React.FC = () => {
             >
               <button onClick={() => navigate('/')} className="flex items-center">
                 <img 
-                  src="/full_logo.png" 
+                  src="/full_logo.png"
                   alt="SKI Logo" 
-                  className="h-32 w-32 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-lg" 
+                  className="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 xl:h-32 xl:w-32 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-lg" 
                 />
               </button>
             </motion.div>

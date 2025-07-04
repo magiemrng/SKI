@@ -17,12 +17,12 @@ export default {
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
         'slide-up': 'slideUp 0.8s ease-out',
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'morph': 'morph 8s ease-in-out infinite',
+        'float': 'float 4s ease-in-out infinite',
+        'glow': 'glow 1.5s ease-in-out infinite alternate',
+        'morph': 'morph 6s ease-in-out infinite',
         'gradient': 'gradient 3s ease infinite',
-        'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
-        'rotate-border': 'rotateBorder 3s linear infinite',
+        'pulse-glow': 'pulseGlow 1.5s ease-in-out infinite alternate',
+        'rotate-border': 'rotateBorder 2s linear infinite',
       },
       keyframes: {
         fadeIn: {

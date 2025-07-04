@@ -9,7 +9,7 @@ interface ParallaxOptions {
 export const useParallax = (options: ParallaxOptions = {}) => {
   // 🎛️ OPTIMIZED PARALLAX SPEED SETTINGS:
   const { 
-    speed = -0.4,    // 📈 Increased from -0.3 to -0.4 for more noticeable parallax
+    speed = -0.2,    // 📈 Reduced for better mobile performance
     offset = 0, 
     enabled = true 
   } = options;

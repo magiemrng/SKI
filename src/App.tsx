@@ -22,17 +22,17 @@ function App() {
       
       /* Custom scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
       }
       
       ::-webkit-scrollbar-track {
         background: #f1f1f1;
-        border-radius: 10px;
+        border-radius: 8px;
       }
       
       ::-webkit-scrollbar-thumb {
         background: linear-gradient(45deg, #FF6B35, #ff8a65);
-        border-radius: 10px;
+        border-radius: 8px;
         transition: all 0.3s ease;
       }
       
@@ -41,9 +41,9 @@ function App() {
         box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
       }
       
-      /* Smooth transitions for all elements */
-      * {
-        transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      /* Optimized transitions - only for interactive elements */
+      button, a, input, textarea {
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       
       /* Enhanced focus states */

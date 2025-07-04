@@ -50,21 +50,21 @@ const Hero: React.FC = () => {
               <img 
                 src="/logo.svg" 
                 alt="SKI Logo"
-                className="h-24 w-24 hover:cursor-pointer transition-transform duration-300"
+                className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 hover:cursor-pointer transition-transform duration-300"
               />
             </motion.div>
             
-            <div className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-6 tracking-tight">
               <WaveText 
                 text="SPARK" 
                 className="block text-ski-black justify-center mb-2"
                 delay={0.2}
               />
               
-              <div className="block text-6xl md:text-8xl lg:text-9xl font-black my-4">
+              <div className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black my-4">
                 <GradientText 
                   text="KNACK" 
-                  className="text-6xl md:text-8xl lg:text-9xl font-black"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black"
                   gradient="from-ski-accent via-orange-500 to-red-500"
                 />
               </div>
@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Animated subtitle with typewriter effect */}
-            <div className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-700 mb-6">
+            <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-700 mb-6">
               We create digital experiences with{' '}
               <TypewriterEffect
                 words={typewriterWords}
@@ -97,11 +97,11 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-4xl mx-auto mb-12"
+            className="max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-12 px-4"
           >
             <TextReveal
               text="A multidisciplinary creative and technology agency committed to driving brand growth through strategic innovation, intelligent design, and data-driven solutions."
-              className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-light"
               delay={1.8}
               duration={0.5}
             />
@@ -111,13 +111,13 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
           >
             <motion.button
               onClick={() => navigate('/contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-ski-black text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300 hover:bg-ski-accent hover:shadow-lg group relative overflow-hidden"
+              className="bg-ski-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300 hover:bg-ski-accent hover:shadow-lg group relative overflow-hidden text-sm sm:text-base"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-ski-accent to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -131,7 +131,7 @@ const Hero: React.FC = () => {
               onClick={scrollToWork}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-ski-black text-ski-black px-8 py-4 rounded-full font-medium hover:bg-ski-black hover:text-white transition-all duration-300 flex items-center gap-2 group relative overflow-hidden"
+              className="border-2 border-ski-black text-ski-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-ski-black hover:text-white transition-all duration-300 flex items-center gap-2 group relative overflow-hidden text-sm sm:text-base"
             >
               <motion.div
                 className="absolute inset-0 bg-ski-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
