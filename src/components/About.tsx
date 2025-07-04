@@ -10,7 +10,8 @@ const About: React.FC = () => {
     threshold: 0.1,
   });
 
-  const parallaxRef = useParallax({ speed: -0.2 });
+  // 🎛️ PARALLAX SPEED for background - adjust the speed value:
+  const parallaxRef = useParallax({ speed: -0.3 }); // Try -0.1 to -0.5
 
   const values = [
     {
@@ -54,33 +55,33 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
           <motion.h2 
             className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             About SKI
           </motion.h2>
           <div className="max-w-4xl mx-auto">
             <motion.p 
               className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               A multidisciplinary creative and technology agency committed to driving brand growth through strategic innovation, intelligent design, and data-driven solutions.
             </motion.p>
             <motion.p 
               className="text-lg text-gray-500 leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               SKI – Spark, Knack, Inspire. Our mission is to ignite bold ideas, apply deep expertise, and deliver transformative results that empower our clients to lead in their industries.
             </motion.p>
@@ -89,26 +90,26 @@ const About: React.FC = () => {
 
         {/* Stats Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.5, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div 
               key={stat.label} 
-              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-500 ease-out"
+              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 ease-out"
               whileHover={{ 
-                y: -8, 
+                y: -5, 
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                boxShadow: "0 15px 30px rgba(0,0,0,0.1)"
               }}
-              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               style={{ 
-                transitionDelay: `${0.5 + index * 0.1}s`,
-                transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                transitionDelay: `${0.3 + index * 0.05}s`,
+                transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
               }}
             >
               <div className="text-3xl md:text-4xl font-bold text-ski-black mb-2">
@@ -123,23 +124,23 @@ const About: React.FC = () => {
           {values.map((value, index) => (
             <motion.div
               key={value.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ 
-                duration: 0.8, 
-                delay: 0.7 + index * 0.15,
+                duration: 0.5, 
+                delay: 0.4 + index * 0.1,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
               className="text-center group"
             >
               <motion.div
                 whileHover={{ 
-                  scale: 1.15,
-                  rotate: 5,
-                  boxShadow: "0 20px 40px rgba(255, 107, 53, 0.2)"
+                  scale: 1.1,
+                  rotate: 3,
+                  boxShadow: "0 15px 30px rgba(255, 107, 53, 0.2)"
                 }}
-                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-8 group-hover:shadow-xl transition-all duration-500"
+                transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-8 group-hover:shadow-xl transition-all duration-300"
               >
                 <value.icon className="w-10 h-10 text-ski-accent" />
               </motion.div>

@@ -46,7 +46,7 @@ function App() {
       
       /* Smooth transitions for all elements */
       * {
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       
       /* Enhanced focus states */
@@ -84,7 +84,16 @@ function App() {
   return (
     <div className="font-inter overflow-x-hidden">
       <ScrollIndicator />
-      <SmoothScrollWrapper enabled={true} factor={1} ease={0.08}>
+      {/* 
+        🎛️ SPEED CONTROLS - Adjust these values to change scrolling speed:
+        
+        enabled: true/false - Turn smooth scrolling on/off
+        factor: 1 = normal speed, 0.5 = slower, 1.5 = faster
+        ease: 0.15 = faster response, 0.05 = slower response
+        
+        Current settings: factor={1.2} ease={0.15} = Faster & more responsive
+      */}
+      <SmoothScrollWrapper enabled={true} factor={1.2} ease={0.15}>
         <Header />
         <Hero />
         <About />

@@ -25,7 +25,8 @@ const ScrollIndicator: React.FC = () => {
       }}
       initial={{ scaleX: 0 }}
       animate={{ scaleX: scrollProgress }}
-      transition={{ duration: 0.1, ease: 'easeOut' }}
+      // 🎛️ SCROLL INDICATOR SPEED - adjust duration for faster/slower response:
+      transition={{ duration: 0.05, ease: 'easeOut' }} // Lower = faster response
     />
   );
 };
