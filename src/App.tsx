@@ -7,7 +7,6 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollIndicator from './components/ScrollIndicator';
-import SmoothScrollWrapper from './components/SmoothScrollWrapper';
 
 function App() {
   useEffect(() => {
@@ -84,24 +83,14 @@ function App() {
   return (
     <div className="font-inter overflow-x-hidden">
       <ScrollIndicator />
-      {/* 
-        🎛️ SPEED CONTROLS - Adjust these values to change scrolling speed:
-        
-        enabled: true/false - Turn smooth scrolling on/off
-        factor: 1 = normal speed, 0.5 = slower, 1.5 = faster
-        ease: 0.15 = faster response, 0.05 = slower response
-        
-        Current settings: factor={1.5} ease={0.2} = Much Faster & More Responsive
-      */}
-      <SmoothScrollWrapper enabled={true} factor={1.5} ease={0.2}>
-        <Header />
-        <Hero />
-        <About />
-        <Services />
-        <Portfolio />
-        <Contact />
-        <Footer />
-      </SmoothScrollWrapper>
+      {/* Smooth scrolling effect removed - now using standard scrolling */}
+      <Header />
+      <Hero />
+      <About />
+      <Services />
+      <Portfolio />
+      <Contact />
+      <Footer />
     </div>
   );
 }

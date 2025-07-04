@@ -99,34 +99,34 @@ const Portfolio: React.FC = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="work" className="py-32 bg-ski-gray relative overflow-hidden">
+    <section id="work" className="py-16 sm:py-24 lg:py-32 bg-ski-gray relative overflow-hidden">
       {/* Enhanced Background Elements using SKI color palette */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-ski-accent/30 to-orange-500/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-ski-black/20 to-gray-800/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-gradient-to-br from-ski-accent/20 to-ski-black/20 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-br from-ski-accent/30 to-orange-500/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-br from-ski-black/20 to-gray-800/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/3 w-56 sm:w-72 h-56 sm:h-72 bg-gradient-to-br from-ski-accent/20 to-ski-black/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-ski-accent/20 to-orange-500/20 px-6 py-3 rounded-full border border-ski-accent/30 mb-8"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-ski-accent/20 to-orange-500/20 px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-ski-accent/30 mb-6 sm:mb-8"
           >
-            <Award className="w-5 h-5 text-ski-accent" />
-            <span className="text-ski-accent font-semibold">Success Stories</span>
+            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-ski-accent" />
+            <span className="text-ski-accent font-semibold text-sm sm:text-base">Success Stories</span>
           </motion.div>
 
           <motion.h2 
-            className="text-4xl md:text-6xl font-bold text-ski-black mb-8 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ski-black mb-6 sm:mb-8 tracking-tight px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -134,7 +134,7 @@ const Portfolio: React.FC = () => {
             Portfolio Showcase
           </motion.h2>
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-4xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-4xl mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -144,12 +144,12 @@ const Portfolio: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs - Responsive */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 sm:mb-16 px-4"
         >
           {categories.map((category) => (
             <motion.button
@@ -157,19 +157,19 @@ const Portfolio: React.FC = () => {
               onClick={() => setActiveFilter(category)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
+              className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-1 sm:gap-2 text-sm sm:text-base ${
                 activeFilter === category
                   ? 'bg-gradient-to-r from-ski-accent to-orange-500 text-white shadow-lg'
                   : 'bg-white/80 text-gray-700 hover:bg-white border border-gray-200 hover:border-ski-accent/30'
               }`}
             >
-              {category === 'All' && <Filter className="w-4 h-4" />}
-              {category}
+              {category === 'All' && <Filter className="w-3 h-3 sm:w-4 sm:h-4" />}
+              <span className="whitespace-nowrap">{category}</span>
             </motion.button>
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid - Fully Responsive */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
@@ -177,7 +177,7 @@ const Portfolio: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -186,16 +186,24 @@ const Portfolio: React.FC = () => {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className={`group relative ${project.featured ? 'lg:col-span-2' : ''}`}
+                className={`group relative ${
+                  project.featured 
+                    ? 'sm:col-span-2 lg:col-span-2' 
+                    : 'col-span-1'
+                }`}
               >
                 {/* Main Card */}
-                <div className="bg-white/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+                <div className="bg-white/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
                   {/* Image Section */}
                   <div className="relative overflow-hidden">
                     <motion.img
                       src={project.image}
                       alt={project.title}
-                      className={`w-full object-cover ${project.featured ? 'h-64' : 'h-48'}`}
+                      className={`w-full object-cover ${
+                        project.featured 
+                          ? 'h-48 sm:h-56 lg:h-64' 
+                          : 'h-40 sm:h-48'
+                      }`}
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.5 }}
                     />
@@ -208,7 +216,7 @@ const Portfolio: React.FC = () => {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="absolute top-4 left-4 bg-gradient-to-r from-ski-accent to-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg"
+                        className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-gradient-to-r from-ski-accent to-orange-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg"
                       >
                         Featured
                       </motion.div>
@@ -223,18 +231,18 @@ const Portfolio: React.FC = () => {
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="bg-white/90 backdrop-blur-sm p-4 rounded-full shadow-xl hover:bg-white transition-colors duration-200"
+                        className="bg-white/90 backdrop-blur-sm p-3 sm:p-4 rounded-full shadow-xl hover:bg-white transition-colors duration-200"
                       >
-                        <ExternalLink className="w-6 h-6 text-ski-black" />
+                        <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-ski-black" />
                       </motion.button>
                     </motion.div>
                   </div>
                   
                   {/* Content Section */}
-                  <div className="p-8">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="p-4 sm:p-6 lg:p-8">
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
                       <motion.div 
-                        className="text-sm font-medium text-ski-accent bg-ski-accent/10 px-3 py-1 rounded-full border border-ski-accent/20"
+                        className="text-xs sm:text-sm font-medium text-ski-accent bg-ski-accent/10 px-2 sm:px-3 py-1 rounded-full border border-ski-accent/20"
                         initial={{ opacity: 0 }}
                         animate={inView ? { opacity: 1 } : {}}
                         transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
@@ -244,7 +252,7 @@ const Portfolio: React.FC = () => {
                     </div>
                     
                     <motion.h3 
-                      className="text-2xl font-bold text-ski-black mb-4"
+                      className="text-lg sm:text-xl lg:text-2xl font-bold text-ski-black mb-3 sm:mb-4"
                       initial={{ opacity: 0, y: 10 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
@@ -253,7 +261,7 @@ const Portfolio: React.FC = () => {
                     </motion.h3>
                     
                     <motion.p 
-                      className="text-gray-600 mb-6 leading-relaxed"
+                      className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed"
                       initial={{ opacity: 0, y: 10 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
@@ -261,29 +269,29 @@ const Portfolio: React.FC = () => {
                       {project.description}
                     </motion.p>
 
-                    {/* Metrics */}
-                    <div className="grid grid-cols-3 gap-4 mb-6">
+                    {/* Metrics - Responsive Grid */}
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6">
                       {project.metrics.map((metric, metricIndex) => (
                         <motion.div
                           key={metric.label}
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={inView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ duration: 0.4, delay: 0.9 + index * 0.1 + metricIndex * 0.1 }}
-                          className="text-center bg-ski-gray/50 rounded-xl p-3 border border-gray-200/50 hover:border-ski-accent/30 transition-colors duration-300"
+                          className="text-center bg-ski-gray/50 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-gray-200/50 hover:border-ski-accent/30 transition-colors duration-300"
                         >
-                          <metric.icon className="w-5 h-5 text-ski-accent mx-auto mb-2" />
-                          <div className="text-ski-black font-bold text-lg">{metric.value}</div>
-                          <div className="text-gray-500 text-xs">{metric.label}</div>
+                          <metric.icon className="w-4 h-4 sm:w-5 sm:h-5 text-ski-accent mx-auto mb-1 sm:mb-2" />
+                          <div className="text-ski-black font-bold text-sm sm:text-lg">{metric.value}</div>
+                          <div className="text-gray-500 text-xs leading-tight">{metric.label}</div>
                         </motion.div>
                       ))}
                     </div>
                     
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
+                    {/* Tags - Responsive */}
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
                       {project.tags.map((tag, tagIndex) => (
                         <motion.span
                           key={tag}
-                          className="px-3 py-1 bg-gray-100 text-xs font-medium text-gray-600 rounded-full border border-gray-200 hover:bg-ski-accent/10 hover:text-ski-accent hover:border-ski-accent/30 transition-colors duration-200"
+                          className="px-2 sm:px-3 py-1 bg-gray-100 text-xs font-medium text-gray-600 rounded-full border border-gray-200 hover:bg-ski-accent/10 hover:text-ski-accent hover:border-ski-accent/30 transition-colors duration-200"
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={inView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ duration: 0.3, delay: 1.0 + index * 0.1 + tagIndex * 0.05 }}
@@ -299,26 +307,26 @@ const Portfolio: React.FC = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA - Responsive */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 1.5 }}
-          className="text-center mt-20"
+          className="text-center mt-16 sm:mt-20"
         >
-          <div className="bg-gradient-to-r from-ski-black to-gray-800 rounded-3xl p-12 border border-gray-200/20 relative overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-r from-ski-black to-gray-800 rounded-2xl sm:rounded-3xl p-8 sm:p-12 border border-gray-200/20 relative overflow-hidden shadow-2xl mx-4 sm:mx-0">
             <div className="absolute inset-0 bg-gradient-to-r from-ski-accent/10 to-orange-500/10" />
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 Ready to Create Your Success Story?
               </h3>
-              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
                 Join our portfolio of successful brands and let us help you achieve remarkable results with our proven strategies.
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-ski-accent to-orange-500 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-ski-accent to-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
               >
                 Start Your Project
               </motion.button>
