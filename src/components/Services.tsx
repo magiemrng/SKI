@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Video, Users, Target, BarChart, Camera, Megaphone } from 'lucide-react';
+import { Video, Users, Target, BarChart, Camera, Megaphone, Monitor, Database } from 'lucide-react';
 
 const Services: React.FC = () => {
   const [ref, inView] = useInView({
@@ -32,25 +32,39 @@ const Services: React.FC = () => {
       color: '#10B981',
     },
     {
+      icon: Monitor,
+      title: 'Website Development',
+      description: 'Custom website development that combines stunning design with powerful functionality to drive business growth.',
+      features: ['Responsive Design', 'E-commerce Solutions', 'CMS Integration', 'SEO Optimization'],
+      color: '#6366F1',
+    },
+    {
+      icon: Database,
+      title: 'PowerBI Dashboard Setup',
+      description: 'Transform your data into actionable insights with custom PowerBI dashboards and comprehensive analytics solutions.',
+      features: ['Data Visualization', 'Custom Reports', 'Real-time Analytics', 'Business Intelligence'],
+      color: '#F59E0B',
+    },
+    {
       icon: Camera,
       title: 'Content Creation',
       description: 'High-quality content creation including photography, videography, and graphic design for all platforms.',
       features: ['Product Photography', 'Brand Videos', 'Graphic Design', 'Content Planning'],
-      color: '#F59E0B',
+      color: '#EF4444',
     },
     {
       icon: Megaphone,
       title: 'Influencer Marketing',
       description: 'Strategic influencer partnerships that amplify your brand message and reach new audiences authentically.',
       features: ['Influencer Outreach', 'Campaign Management', 'Performance Tracking', 'Brand Partnerships'],
-      color: '#6366F1',
+      color: '#8B5CF6',
     },
     {
       icon: BarChart,
       title: 'Analytics & Optimization',
       description: 'Comprehensive analytics and optimization services to measure success and continuously improve performance.',
       features: ['Performance Analytics', 'A/B Testing', 'Conversion Tracking', 'ROI Analysis'],
-      color: '#8B5CF6',
+      color: '#14B8A6',
     },
   ];
 
@@ -89,11 +103,11 @@ const Services: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Comprehensive digital marketing services designed to elevate your brand presence and drive measurable business growth.
+            Comprehensive digital marketing and technology services designed to elevate your brand presence and drive measurable business growth.
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
