@@ -22,6 +22,16 @@ const Services: React.FC = () => {
       bgGradient: 'from-blue-50 to-blue-100',
       iconBg: 'bg-blue-500',
     },
+     {
+      icon: Monitor,
+      title: 'Website Development',
+      description: 'Custom website development that combines stunning design with powerful functionality to drive business growth.',
+      features: ['Responsive Design', 'UI/UX Designs','E-commerce Solutions', 'CMS Integration', 'SEO Optimization'],
+      color: '#6366F1',
+      gradient: 'from-indigo-500 to-indigo-600',
+      bgGradient: 'from-indigo-50 to-indigo-100',
+      iconBg: 'bg-indigo-500',
+    },
     {
       icon: Users,
       title: 'Social Media Management',
@@ -42,16 +52,7 @@ const Services: React.FC = () => {
       bgGradient: 'from-emerald-50 to-emerald-100',
       iconBg: 'bg-emerald-500',
     },
-    {
-      icon: Monitor,
-      title: 'Website Development',
-      description: 'Custom website development that combines stunning design with powerful functionality to drive business growth.',
-      features: ['Responsive Design', 'UI/UX Designs','E-commerce Solutions', 'CMS Integration', 'SEO Optimization'],
-      color: '#6366F1',
-      gradient: 'from-indigo-500 to-indigo-600',
-      bgGradient: 'from-indigo-50 to-indigo-100',
-      iconBg: 'bg-indigo-500',
-    },
+   
     {
       icon: Database,
       title: 'PowerBI Dashboard Setup',
