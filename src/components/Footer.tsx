@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <img src="/FULL_LOGO.png" alt="SKI Logo" className="h-8 w-auto filter invert" />
+              <img src="/full_logo.png" alt="SKI Logo" className="h-8 w-auto filter invert" />
             </motion.div>
             
             <motion.p 
