@@ -69,14 +69,11 @@ const Hero: React.FC = () => {
                 />
               </div>
               
-              <motion.div 
-                className="block text-ski-black mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-              >
-                IGNITE
-              </motion.div>
+              <WaveText 
+                text="IGNITE" 
+                className="block text-ski-black justify-center mb-2"
+                delay={0.2}
+              />
             </div>
 
             {/* Animated subtitle with typewriter effect */}
