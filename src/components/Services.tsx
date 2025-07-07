@@ -46,7 +46,7 @@ const Services: React.FC = () => {
       icon: Monitor,
       title: 'Website Development',
       description: 'Custom website development that combines stunning design with powerful functionality to drive business growth.',
-      features: ['Responsive Design', 'E-commerce Solutions', 'CMS Integration', 'SEO Optimization'],
+      features: ['Responsive Design', 'UI/UX Designs','E-commerce Solutions', 'CMS Integration', 'SEO Optimization'],
       color: '#6366F1',
       gradient: 'from-indigo-500 to-indigo-600',
       bgGradient: 'from-indigo-50 to-indigo-100',
