@@ -75,7 +75,7 @@ const Services: React.FC = () => {
     },
     {
       icon: Megaphone,
-      title: 'Influencer Marketing',
+      title: 'Brand Marketing',
       description: 'Strategic influencer partnerships that amplify your brand message and reach new audiences authentically.',
       features: ['Influencer Outreach', 'Campaign Management', 'Performance Tracking', 'Brand Partnerships'],
       color: '#8B5CF6',
